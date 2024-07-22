@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "_ProductList";
+}
+
+@model IEnumerable<SanPhamClassLiBrary.Model.ProductModel>
+
+<table class="mt-5 table table-hover">
+    <thead>
+        <tr>
+        
+            <th>Tên</th>
+            <th>Mô Tả</th>
+            <th>Giá</th>
+            <th>Hoạt Động</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+              
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>@product.IsActive</td>
+                <td>
+                    <a href="#" onclick="deleteProduct(@product.Id)">Xóa</a>
+                    @Html.ActionLink("Sửa", "Edit", new { id = product.Id }) <!-- Liên kết đến trang sửa sản phẩm -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

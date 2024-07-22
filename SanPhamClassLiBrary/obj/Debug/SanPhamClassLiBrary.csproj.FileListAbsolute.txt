@@ -1,0 +1,6 @@
+C:\Users\leduc\source\repos\SanPhamClassLiBrary\SanPhamClassLiBrary\bin\Debug\SanPhamClassLiBrary.dll
+C:\Users\leduc\source\repos\SanPhamClassLiBrary\SanPhamClassLiBrary\bin\Debug\SanPhamClassLiBrary.pdb
+C:\Users\leduc\source\repos\SanPhamClassLiBrary\SanPhamClassLiBrary\obj\Debug\SanPhamClassLiBrary.csproj.AssemblyReference.cache
+C:\Users\leduc\source\repos\SanPhamClassLiBrary\SanPhamClassLiBrary\obj\Debug\SanPhamClassLiBrary.csproj.CoreCompileInputs.cache
+C:\Users\leduc\source\repos\SanPhamClassLiBrary\SanPhamClassLiBrary\obj\Debug\SanPhamClassLiBrary.dll
+C:\Users\leduc\source\repos\SanPhamClassLiBrary\SanPhamClassLiBrary\obj\Debug\SanPhamClassLiBrary.pdb

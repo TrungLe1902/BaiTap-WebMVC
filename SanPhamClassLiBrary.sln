@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanPhamClassLiBrary", "SanPhamClassLiBrary\SanPhamClassLiBrary.csproj", "{BA57FFC3-6765-42FD-A80A-2BAA29156145}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanPhamWebMVC", "SanPhamWebASP\SanPhamWebMVC.csproj", "{131B08FB-F160-4CDE-A527-929A2841CBDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA57FFC3-6765-42FD-A80A-2BAA29156145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA57FFC3-6765-42FD-A80A-2BAA29156145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA57FFC3-6765-42FD-A80A-2BAA29156145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA57FFC3-6765-42FD-A80A-2BAA29156145}.Release|Any CPU.Build.0 = Release|Any CPU
+		{131B08FB-F160-4CDE-A527-929A2841CBDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{131B08FB-F160-4CDE-A527-929A2841CBDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{131B08FB-F160-4CDE-A527-929A2841CBDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{131B08FB-F160-4CDE-A527-929A2841CBDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53F6AD1F-313F-4183-8EAF-451953530031}
+	EndGlobalSection
+EndGlobal

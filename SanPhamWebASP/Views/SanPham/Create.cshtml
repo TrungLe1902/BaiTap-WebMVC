@@ -1,0 +1,75 @@
+﻿@model SanPhamClassLiBrary.Model.ProductModel
+
+@{
+    ViewBag.Title = "Thêm Sản Phẩm";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div id="message"></div>
+
+<form id="createProductForm">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3 row">
+        <label for="Name" class="col-sm-2 col-form-label">Tên Sản Phẩm</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", id = "Name" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="Description" class="col-sm-2 col-form-label">Mô Tả</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control", id = "Description" })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="IsActive" class="col-sm-2 col-form-label">Trạng Thái</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.IsActive, new { @class = "form-control", id = "IsActive" })
+            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="Price" class="col-sm-2 col-form-label">Giá</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.Price, new { @class = "form-control", id = "Price" })
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gửi</button>
+</form>
+
+@section Scripts {
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#createProductForm').on('submit', function (e) {
+                e.preventDefault(); // Ngăn gửi form theo cách thông thường
+
+                $.ajax({
+                    url: '@Url.Action("Create", "SanPham")',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        if (result.success) {
+                            $('#message').html('<div class="alert alert-success">Sản phẩm đã được thêm thành công!</div>');
+                            $('#createProductForm')[0].reset(); // Reset form sau khi thành công
+                        } else {
+                            $('#message').html('<div class="alert alert-danger">Có lỗi xảy ra: ' + result.errors.join('<br/>') + '</div>');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        $('#message').html('<div class="alert alert-danger">Có lỗi xảy ra: ' + xhr.responseText + '</div>');
+                    }
+                });
+            });
+        });
+    </script>
+}

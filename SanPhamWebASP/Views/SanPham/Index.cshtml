@@ -1,0 +1,74 @@
+﻿@model IEnumerable<SanPhamClassLiBrary.Model.ProductModel>
+
+@{
+    ViewBag.Title = "Danh Sách Sản Phẩm";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <form id="filterForm">
+        <label style="margin-right:6px;" for="searchTerm">Tên Sản Phẩm</label>
+        <input type="text" id="searchTerm" name="searchTerm" placeholder="Nhập từ khóa tìm kiếm..." />
+
+        <label style=" margin-left: 35px; margin-right:6px;" for="statusFilter"> Trạng Thái</label>
+        <select id="statusFilter" name="isActive">
+            <option value="">Tất Cả</option>
+            <option value="C">Bán Chạy</option>
+            <option value="D">Giảm giá</option>
+        </select>
+
+        <button style="margin-left:6px;" type="submit">Tìm kiếm</button>
+    </form>
+</div>
+
+<div id="productListContainer">
+    @Html.Partial("_ProductList", Model)
+</div>
+
+<div>
+    <a href="@Url.Action("Create", "SanPham")">Thêm Sản Phẩm</a>
+</div>
+
+@section Scripts {
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#filterForm').submit(function (event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: '@Url.Action("Index", "SanPham")',
+                    type: 'GET',
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        $('#productListContainer').html(result);
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Có lỗi xảy ra: ' + xhr.responseText);
+                    }
+                });
+            });
+        });
+
+        function deleteProduct(id) {
+            if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete", "SanPham")',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (result) {
+                        if (result.success) {
+                            $('#filterForm').submit(); // Tái nạp danh sách sản phẩm sau khi xóa
+                        } else {
+                            alert('Có lỗi xảy ra: ' + result.error);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Có lỗi xảy ra: ' + xhr.responseText);
+                    }
+                });
+            }
+        }
+    </script>
+}
